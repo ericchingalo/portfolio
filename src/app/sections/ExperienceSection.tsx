@@ -1,0 +1,45 @@
+import styles from "../page.module.css";
+
+type Experience = {
+  title: string;
+  org: string;
+  period: string;
+};
+
+type ExperienceProps = {
+  experience: Experience[];
+};
+
+export function ExperienceSection({ experience }: ExperienceProps) {
+  return (
+    <section
+      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
+      data-animate
+      id="experience"
+    >
+      <div className={styles.shell}>
+        <section className={styles.experience}>
+          <div className={styles.experienceHeader}>
+            <p className={styles.overline}>Experience</p>
+            <h2>Where I’ve been</h2>
+          </div>
+          <div className={styles.experienceList}>
+            {experience.map((role) => (
+              <div className={styles.experienceItem} key={`${role.title}-${role.org}`}>
+                <div>
+                  <p className={styles.experienceTitle}>{role.title}</p>
+                  <p className={styles.experienceOrg}>{role.org}</p>
+                </div>
+                <p className={styles.experiencePeriod}>{role.period}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+      <a className={`${styles.fab} ${styles.fabUp}`} href="#hero" aria-label="Back to top">
+        ↑
+      </a>
+    </section>
+  );
+}
+
