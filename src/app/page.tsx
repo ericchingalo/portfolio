@@ -81,9 +81,9 @@ export default function Home() {
     <div className={styles.page}>
       <HeroSection
         emailHref="mailto:ericchingalo@gmail.com"
-        linkedinHref="https://www.linkedin.com/"
-        twitterHref="https://twitter.com/"
-        githubHref="https://github.com/"
+        linkedinHref="https://www.linkedin.com/in/eric-chingalo/"
+        twitterHref="https://twitter.com/ericchingalo"
+        githubHref="https://github.com/ericchingalo"
       />
 
       <SkillsSection skills={skills} />
