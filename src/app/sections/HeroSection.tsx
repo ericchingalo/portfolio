@@ -1,4 +1,5 @@
 import styles from "../page.module.css";
+import Image from "next/image";
 
 type HeroProps = {
   emailHref: string;
@@ -15,25 +16,40 @@ export function HeroSection({
 }: HeroProps) {
   return (
     <section
-      className={`${styles.section} ${styles.sectionHero} ${styles.animate}`}
+      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
       data-animate
       id="hero"
     >
       <div className={styles.shell}>
         <main className={styles.hero}>
-          <p className={styles.overline}>Mobile · Web · Integrations · DHIS2</p>
           <h1 className={styles.heroTitle}>
-            <span className={styles.heroAbbr}>EC</span> Eric Chingalo
+            <Image
+              className={styles.heroAvatar}
+              src="/portrait.jpg"
+              alt="Eric Chingalo"
+              width={64}
+              height={64}
+              style={{ height: "1em", width: "1em" }}
+              priority
+            />
+            Eric Chingalo
           </h1>
           <p className={styles.heroSubtitle}>Senior Systems Developer</p>
+          <p className={styles.overline}>
+            Mobile · Web · UI/UX · Integrations · DHIS2
+          </p>
           <p className={styles.lead}>
-            Tanzanian software developer with 5+ years building DHIS2 tracker and aggregate
-            customizations, plus custom apps across global health programs. Skilled in UI/UX, system
-            integration, and user-centered digital tools that strengthen health systems and improve
-            data use for decision-making.
+            Tanzanian software developer with 5+ years building DHIS2 tracker
+            and aggregate customizations, plus custom apps across global health
+            programs. Skilled in UI/UX, system integration, and user-centered
+            digital tools that strengthen health systems and improve data use
+            for decision-making.
           </p>
           <div className={styles.actions}>
-            <a className={`${styles.primary} ${styles.emailLink}`} href={emailHref}>
+            <a
+              className={`${styles.primary} ${styles.emailLink}`}
+              href={emailHref}
+            >
               Email Eric
             </a>
             <a
@@ -63,10 +79,13 @@ export function HeroSection({
           </div>
         </main>
       </div>
-      <a className={`${styles.fab} ${styles.fabDown}`} href="#skills" aria-label="Scroll to skills">
+      <a
+        className={`${styles.fab} ${styles.fabDown}`}
+        href="#skills"
+        aria-label="Scroll to skills"
+      >
         ↓
       </a>
     </section>
   );
 }
-

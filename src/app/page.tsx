@@ -62,12 +62,15 @@ export default function Home() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // add class when entering viewport, remove when leaving to enable fade in/out
           if (entry.isIntersecting) {
             entry.target.classList.add(styles.visible);
+          } else {
+            entry.target.classList.remove(styles.visible);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.5 }
     );
 
     targets.forEach((el) => observer.observe(el));
