@@ -496,7 +496,7 @@
 }
 
 .fab {
-  position: absolute;
+  position: fixed;
   right: 24px;
   bottom: 80px;
   width: 44px;
@@ -514,6 +514,10 @@
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
   animation: bounce 2s ease-in-out infinite;
   scroll-behavior: smooth;
+  z-index: 1000;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .fab:hover {
@@ -539,5 +543,13 @@
 
   .status {
     align-self: flex-start;
+  }
+
+  .fab {
+    right: 16px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
   }
 }

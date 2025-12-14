@@ -12,11 +12,19 @@ type SkillsProps = {
 export function SkillsSection({ skills }: SkillsProps) {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     const targetId = e.currentTarget.getAttribute("href")?.slice(1);
     if (targetId) {
       const element = document.getElementById(targetId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Use window.scrollTo for better mobile compatibility
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - 0;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
       }
     }
   };
