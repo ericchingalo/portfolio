@@ -27,7 +27,7 @@ export function HeroSection({
 
   return (
     <section
-      className={`${styles.section} ${styles.sectionHero} ${styles.animate}`}
+      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
       data-animate
       id="hero"
     >
