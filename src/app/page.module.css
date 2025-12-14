@@ -271,6 +271,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
 }
 
 .skillsHeader h2 {
@@ -321,6 +323,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
 }
 
 .openHeader h2 {
@@ -387,6 +391,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
 }
 
 .experienceHeader h2 {
