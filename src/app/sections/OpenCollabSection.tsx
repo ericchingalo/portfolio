@@ -1,6 +1,17 @@
 import styles from "../page.module.css";
 
 export function OpenCollabSection() {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <section
       className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
@@ -65,6 +76,7 @@ export function OpenCollabSection() {
         className={`${styles.fab} ${styles.fabDown}`}
         href="#experience"
         aria-label="Scroll to experience"
+        onClick={handleSmoothScroll}
       >
         ↓
       </a>

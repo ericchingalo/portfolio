@@ -11,6 +11,17 @@ type ExperienceProps = {
 };
 
 export function ExperienceSection({ experience }: ExperienceProps) {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <section
       className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
@@ -36,7 +47,12 @@ export function ExperienceSection({ experience }: ExperienceProps) {
           </div>
         </section>
       </div>
-      <a className={`${styles.fab} ${styles.fabUp}`} href="#hero" aria-label="Back to top">
+      <a
+        className={`${styles.fab} ${styles.fabUp}`}
+        href="#hero"
+        aria-label="Back to top"
+        onClick={handleSmoothScroll}
+      >
         ↑
       </a>
     </section>

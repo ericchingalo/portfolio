@@ -14,9 +14,20 @@ export function HeroSection({
   twitterHref,
   githubHref,
 }: HeroProps) {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <section
-      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
+      className={`${styles.section} ${styles.sectionHero} ${styles.animate}`}
       data-animate
       id="hero"
     >
@@ -83,6 +94,7 @@ export function HeroSection({
         className={`${styles.fab} ${styles.fabDown}`}
         href="#skills"
         aria-label="Scroll to skills"
+        onClick={handleSmoothScroll}
       >
         ↓
       </a>

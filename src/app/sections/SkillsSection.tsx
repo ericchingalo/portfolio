@@ -10,6 +10,17 @@ type SkillsProps = {
 };
 
 export function SkillsSection({ skills }: SkillsProps) {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <section
       className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
@@ -38,7 +49,12 @@ export function SkillsSection({ skills }: SkillsProps) {
           </div>
         </section>
       </div>
-      <a className={`${styles.fab} ${styles.fabDown}`} href="#collab" aria-label="Scroll to collaboration">
+      <a
+        className={`${styles.fab} ${styles.fabDown}`}
+        href="#collab"
+        aria-label="Scroll to collaboration"
+        onClick={handleSmoothScroll}
+      >
         ↓
       </a>
     </section>

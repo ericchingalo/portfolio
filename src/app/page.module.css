@@ -15,7 +15,8 @@
   justify-content: center;
   padding: 72px 24px 96px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  scroll-snap-align: start;
 }
 
 .sectionHero {
@@ -24,7 +25,7 @@
     radial-gradient(circle at 90% 10%, rgba(124, 198, 255, 0.05), transparent 22%),
     linear-gradient(to bottom, rgba(11, 15, 24, 0.5), rgba(11, 15, 24, 0.5));
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .sectionHero::before {
@@ -36,8 +37,9 @@
   /* align image to the top so the top of the portrait isn't cropped */
   background-position: top right;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   opacity: 0.3;
+  will-change: transform;
   transition: opacity 0.6s ease, transform 0.6s ease;
   z-index: 0;
 }
@@ -462,6 +464,15 @@
   transform: translateY(0);
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .fab {
   position: absolute;
   right: 24px;
@@ -478,13 +489,16 @@
   background: rgba(255, 255, 255, 0.08);
   color: #e6edf5;
   backdrop-filter: blur(8px);
-  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  animation: bounce 2s ease-in-out infinite;
+  scroll-behavior: smooth;
 }
 
 .fab:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.05);
   background: rgba(124, 198, 255, 0.22);
   border-color: rgba(124, 198, 255, 0.5);
+  animation-play-state: paused;
 }
 
 .fabDown {
