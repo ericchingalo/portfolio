@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import styles from "../page.module.css";
 import Image from "next/image";
 
@@ -14,6 +17,21 @@ export function HeroSection({
   twitterHref,
   githubHref,
 }: HeroProps) {
+  const fullText = "Eric Chingalo";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    if (displayedText.length < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullText.slice(0, displayedText.length + 1));
+      }, 120);
+      return () => clearTimeout(timeout);
+    } else {
+      setIsTyping(false);
+    }
+  }, [displayedText, fullText]);
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute("href")?.slice(1);
@@ -43,7 +61,10 @@ export function HeroSection({
               style={{ height: "1em", width: "1em" }}
               priority
             />
-            Eric Chingalo
+            <span>
+              {displayedText}
+              {isTyping && <span className={styles.cursor}>|</span>}
+            </span>
           </h1>
           <p className={styles.heroSubtitle}>Senior Systems Developer</p>
           <p className={styles.overline}>

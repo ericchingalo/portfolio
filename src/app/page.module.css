@@ -139,6 +139,22 @@
   gap: 16px;
 }
 
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  color: #7cc6ff;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 .heroAbbr {
   display: inline-flex;
   align-items: center;
