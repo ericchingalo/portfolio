@@ -50,11 +50,9 @@ export function HeroSection({
             Mobile · Web · UI/UX · Integrations · DHIS2
           </p>
           <p className={styles.lead}>
-            Tanzanian software developer with 5+ years building web and mobile
-            apps , mostly around DHIS2 tracker and aggregate data models
-            centered primarily around Health services. Skilled in UI/UX, system
-            integration, and user-centered digital tools that strengthen health
-            systems and improve data use for decision-making.
+          I’m a Tanzanian software developer who enjoys building thoughtful, user-centered digital solutions. 
+          With over 5 years of experience across web and mobile development, UI/UX design, and system integration, I work closely with teams to turn ideas into reliable, impactful products. 
+          I’ve also built and customized solutions within the DHIS2 ecosystem, contributing to data-driven health systems and better decision-making.
           </p>
           <div className={styles.actions}>
             <a
