@@ -503,7 +503,7 @@
 }
 
 .fab {
-  position: fixed;
+  position: absolute;
   right: 24px;
   bottom: 80px;
   width: 44px;
