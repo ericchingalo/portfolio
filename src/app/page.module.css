@@ -2,11 +2,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: #e6edf5;
-  font-family: var(--font-geist-sans);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   background: radial-gradient(circle at 10% 20%, rgba(124, 198, 255, 0.08), transparent 25%),
     radial-gradient(circle at 90% 10%, rgba(124, 198, 255, 0.05), transparent 22%),
-    #0b0f18;
+    var(--bg-primary);
 }
 
 .section {
@@ -52,7 +52,7 @@
 .sectionDefault {
   background: radial-gradient(circle at 10% 20%, rgba(124, 198, 255, 0.08), transparent 25%),
     radial-gradient(circle at 90% 10%, rgba(124, 198, 255, 0.05), transparent 22%),
-    #0b0f18;
+    var(--bg-primary);
 }
 
 .shell {
@@ -84,18 +84,18 @@
   place-items: center;
   font-weight: 700;
   letter-spacing: 0.5px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
 }
 
 .name {
   font-size: 22px;
   font-weight: 700;
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .role {
-  color: #9fb3c8;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -103,8 +103,8 @@
   padding: 10px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #9fb3c8;
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -121,7 +121,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 12px;
-  color: #7cc6ff;
+  color: var(--text-overline);
 }
 
 .hero h1 {
@@ -143,14 +143,18 @@
   display: inline-block;
   margin-left: 2px;
   animation: blink 1s infinite;
-  color: #7cc6ff;
+  color: var(--accent-primary);
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0;
   }
 }
@@ -165,8 +169,8 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: 24px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
   flex-shrink: 0;
 }
 
@@ -179,18 +183,18 @@
   display: block;
   object-fit: cover;
   border-radius: 0.375rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-primary);
   margin-right: 0.5rem;
 }
 
 .heroSubtitle {
   font-size: 18px;
-  color: #9fb3c8;
+  color: var(--text-secondary);
   margin-top: -2px;
 }
 
 .lead {
-  color: #c4d1e1;
+  color: var(--text-tertiary);
   max-width: 760px;
   line-height: 1.6;
 }
@@ -214,28 +218,28 @@
 }
 
 .primary {
-  background: #7cc6ff;
-  color: #0a0f18;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
 }
 
 .primary:hover {
-  background: #a1dbff;
+  background: var(--accent-secondary);
   transform: translateY(-1px);
 }
 
 .secondary {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #e6edf5;
+  border: 1px solid var(--border-secondary);
+  color: var(--text-primary);
 }
 
 .secondary:hover {
-  border-color: #7cc6ff;
-  color: #7cc6ff;
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
   transform: translateY(-1px);
 }
 
 .emailLink {
-  background: #ea4335;
+  background: var(--brand-email);
   color: #ffffff;
 }
 
@@ -244,7 +248,7 @@
 }
 
 .linkedinLink {
-  background: #0077b5;
+  background: var(--brand-linkedin);
   border-color: #005885;
   color: #ffffff;
 }
@@ -256,7 +260,7 @@
 }
 
 .twitterLink {
-  background: #1da1f2;
+  background: var(--brand-twitter);
   border-color: #1a8cd8;
   color: #ffffff;
 }
@@ -268,7 +272,7 @@
 }
 
 .githubLink {
-  background: #6e5494;
+  background: var(--brand-github);
   border-color: #5a4477;
   color: #ffffff;
 }
@@ -293,7 +297,7 @@
 
 .skillsHeader h2 {
   font-size: clamp(28px, 3.2vw, 36px);
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .skillsGrid {
@@ -305,8 +309,8 @@
 .skillCard {
   padding: 18px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -314,7 +318,7 @@
 
 .skillTitle {
   font-weight: 600;
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .skillList {
@@ -330,8 +334,8 @@
   padding: 6px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #c4d1e1;
+  border: 1px solid var(--border-primary);
+  color: var(--text-tertiary);
   font-size: 14px;
 }
 
@@ -345,7 +349,7 @@
 
 .openHeader h2 {
   font-size: clamp(28px, 3.4vw, 38px);
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .openGrid {
@@ -368,16 +372,16 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #7cc6ff;
+  color: var(--text-overline);
 }
 
 .openTitle {
   font-weight: 700;
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .openCopy {
-  color: #c4d1e1;
+  color: var(--text-tertiary);
   line-height: 1.5;
 }
 
@@ -389,17 +393,17 @@
 }
 
 .openActions a {
-  background: #7cc6ff;
-  color: #0a0f18;
-  border: 1px solid #7cc6ff;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border: 1px solid var(--accent-primary);
   padding: 10px 14px;
   border-radius: 12px;
   font-weight: 700;
 }
 
 .openActions a:hover {
-  background: #a1dbff;
-  border-color: #a1dbff;
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
   transform: translateY(-1px);
 }
 
@@ -413,7 +417,7 @@
 
 .experienceHeader h2 {
   font-size: clamp(28px, 3.2vw, 36px);
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .experienceList {
@@ -427,8 +431,8 @@
 .experienceItem {
   padding: 16px 18px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -455,22 +459,22 @@
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background: #7cc6ff;
+  background: var(--accent-primary);
   box-shadow: 0 0 0 4px rgba(124, 198, 255, 0.15);
 }
 
 .experienceTitle {
   font-weight: 600;
-  color: #e6edf5;
+  color: var(--text-primary);
 }
 
 .experienceOrg {
-  color: #9fb3c8;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .experiencePeriod {
-  color: #c4d1e1;
+  color: var(--text-tertiary);
   font-size: 14px;
 }
 
@@ -487,9 +491,12 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -508,8 +515,8 @@
   font-weight: 700;
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
-  color: #e6edf5;
+  background: var(--border-primary);
+  color: var(--text-primary);
   backdrop-filter: blur(8px);
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
   animation: bounce 2s ease-in-out infinite;

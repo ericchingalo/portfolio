@@ -1,12 +1,35 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Semantic Color System */
+  --bg-primary: #0b0f18;
+  --bg-secondary: rgba(255, 255, 255, 0.03);
+  --bg-tertiary: rgba(255, 255, 255, 0.06);
+  
+  --text-primary: #e6edf5;
+  --text-secondary: #9fb3c8;
+  --text-tertiary: #c4d1e1;
+  --text-overline: #7cc6ff;
+
+  --accent-primary: #7cc6ff;
+  --accent-secondary: #a1dbff;
+
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-secondary: rgba(255, 255, 255, 0.2);
+  
+  /* Brand/Social Colors */
+  --brand-email: #ea4335;
+  --brand-linkedin: #0077b5;
+  --brand-twitter: #1da1f2;
+  --brand-github: #6e5494;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Ensure dark mode persists these choices or adjust if needed */
+    --bg-primary: #0b0f18;
+    --text-primary: #e6edf5;
   }
 }
 
@@ -21,9 +44,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -37,10 +60,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
