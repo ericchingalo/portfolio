@@ -1,6 +1,9 @@
 import styles from "../page.module.css";
+import { getSocialLinks } from "../../services/contentService";
 
 export function OpenCollabSection() {
+  const socialLinks = getSocialLinks();
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -9,9 +12,10 @@ export function OpenCollabSection() {
       const element = document.getElementById(targetId);
       if (element) {
         // Use window.scrollTo for better mobile compatibility
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - 0;
-        
+
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -32,8 +36,10 @@ export function OpenCollabSection() {
             <p className={styles.overline}>Availability</p>
             <h2>Open for work & collaboration</h2>
             <p className={styles.lead}>
-              I'm open to partnering on mobile, web, integrations, and UI/UX design projects. I'm also interested in data collections, analytics, and user experience projects especially around
-              DHIS2 implementations and integrations.
+              I'm open to partnering on mobile, web, integrations, and UI/UX
+              design projects. I'm also interested in data collections,
+              analytics, and user experience projects especially around DHIS2
+              implementations and integrations.
             </p>
           </div>
           <div className={styles.openGrid}>
@@ -48,8 +54,8 @@ export function OpenCollabSection() {
               <p className={styles.openLabel}>Delivery</p>
               <p className={styles.openTitle}>Build & Ship</p>
               <p className={styles.openCopy}>
-                Web and mobile apps, integrations, UI/UX design, data visualizations and dashboards,
-                and DHIS2 implementations.
+                Web and mobile apps, integrations, UI/UX design, data
+                visualizations and dashboards, and DHIS2 implementations.
               </p>
             </div>
             <div className={styles.openCard}>
@@ -62,13 +68,13 @@ export function OpenCollabSection() {
               <div className={styles.openActions}>
                 <a
                   className={`${styles.primary} ${styles.emailLink}`}
-                  href="mailto:ericchingalo@gmail.com"
+                  href={socialLinks.email}
                 >
                   Email
                 </a>
                 <a
                   className={`${styles.secondary} ${styles.linkedinLink}`}
-                  href="https://www.linkedin.com/in/eric-chingalo/"
+                  href={socialLinks.linkedin}
                   target="_blank"
                   rel="noreferrer"
                 >

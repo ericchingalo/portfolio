@@ -6,56 +6,16 @@ import { ExperienceSection } from "./sections/ExperienceSection";
 import { HeroSection } from "./sections/HeroSection";
 import { OpenCollabSection } from "./sections/OpenCollabSection";
 import { SkillsSection } from "./sections/SkillsSection";
+import {
+  getExperience,
+  getSkills,
+  getSocialLinks,
+} from "../services/contentService";
 
 export default function Home() {
-  const skills = [
-    {
-      title: "Web App Development",
-      items: ["Angular", "React", "Next.js", "Responsive UIs"],
-    },
-    {
-      title: "Mobile App Development",
-      items: ["Flutter/Dart", "Ionic", "Native-like UX"],
-    },
-    {
-      title: "UI/UX Design & Research",
-      items: ["Figma", "Prototyping", "User interviews"],
-    },
-    {
-      title: "DHIS2",
-      items: ["Tracker", "Aggregate", "App Development", "Analytics"],
-    },
-    {
-      title: "Data Visualization & Analysis",
-      items: ["Dashboards", "Insights", "Reporting"],
-    },
-    {
-      title: "System Design & Architecture",
-      items: ["Scalable services", "Reliability patterns"],
-    },
-    {
-      title: "Interoperability & Integrations",
-      items: ["APIs", "Mediators", "Data pipelines"],
-    },
-  ];
-
-  const experience = [
-    {
-      title: "Senior Information Systems Developer",
-      org: "HISP Tanzania",
-      period: "Jan 2025 — Present",
-    },
-    {
-      title: "Information Systems Developer",
-      org: "HISP Tanzania",
-      period: "Jan 2021 — Dec 2025",
-    },
-    {
-      title: "Software Developer",
-      org: "Marimba Informatics",
-      period: "Apr 2019 — Sep 2023",
-    },
-  ];
+  const skills = getSkills();
+  const experience = getExperience();
+  const socialLinks = getSocialLinks();
 
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>("[data-animate]");
@@ -80,10 +40,10 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSection
-        emailHref="mailto:ericchingalo@gmail.com"
-        linkedinHref="https://www.linkedin.com/in/eric-chingalo/"
-        twitterHref="https://twitter.com/ericchingalo"
-        githubHref="https://github.com/ericchingalo"
+        emailHref={socialLinks.email}
+        linkedinHref={socialLinks.linkedin}
+        twitterHref={socialLinks.twitter}
+        githubHref={socialLinks.github}
       />
 
       <SkillsSection skills={skills} />
