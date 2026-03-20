@@ -1,71 +1,56 @@
-import styles from "../page.module.css";
+"use client";
 
-type Skill = {
-  title: string;
-  items: string[];
-};
+import { motion } from "framer-motion";
+import styles from "./SkillsSection.module.css";
+import { Skill } from "../../services/contentService";
 
 type SkillsProps = {
   skills: Skill[];
 };
 
 export function SkillsSection({ skills }: SkillsProps) {
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
-    if (targetId) {
-      const element = document.getElementById(targetId);
-      if (element) {
-        // Use window.scrollTo for better mobile compatibility
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - 0;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
   return (
-    <section
-      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
-      data-animate
-      id="skills"
-    >
+    <section className={styles.section} id="skills">
       <div className={styles.shell}>
-        <section className={styles.skills}>
-          <div className={styles.skillsHeader}>
-            <p className={styles.overline}>Capabilities</p>
-            <h2>What I work with</h2>
-          </div>
-          <div className={styles.skillsGrid}>
-            {skills.map((skill) => (
-              <div className={styles.skillCard} key={skill.title}>
-                <p className={styles.skillTitle}>{skill.title}</p>
-                <ul className={styles.skillList}>
-                  {skill.items.map((item) => (
-                    <li className={styles.skillItem} key={item}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+        <div className={styles.skillsHeader}>
+          <p className={styles.overline}>TECH STACK</p>
+          <h2 className={styles.title}>
+            TECHNOLOGICAL <span className={styles.titleHighlight}>SKILLS</span>
+          </h2>
+        </div>
+
+        <div className={styles.grid}>
+          {skills.map((skill, index) => (
+            <motion.div
+              className={styles.card}
+              key={skill.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+            >
+              <div className={styles.cardIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
               </div>
-            ))}
-          </div>
-        </section>
+              <div className={styles.cardHeader}>
+                <h3 className={styles.cardTitle}>{skill.title}</h3>
+                <p className={styles.cardDescription}>
+                  {skill.description}
+                </p>
+              </div>
+              <div className={styles.tags}>
+                {skill.items.map((item) => (
+                  <span className={styles.tag} key={item}>
+                    #{item.replace(/\s+/g, "_").toUpperCase()}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <a
-        className={`${styles.fab} ${styles.fabDown}`}
-        href="#collab"
-        aria-label="Scroll to collaboration"
-        onClick={handleSmoothScroll}
-      >
-        ↓
-      </a>
     </section>
   );
 }
-

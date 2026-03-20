@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import styles from "./page.module.css";
 import { ExperienceSection } from "./sections/ExperienceSection";
 import { HeroSection } from "./sections/HeroSection";
-import { OpenCollabSection } from "./sections/OpenCollabSection";
 import { SkillsSection } from "./sections/SkillsSection";
+import { NavigationBar } from "./components/NavigationBar";
+import { FooterCTA } from "./components/FooterCTA";
 import {
   getExperience,
   getSkills,
@@ -39,6 +40,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <NavigationBar />
       <HeroSection
         emailHref={socialLinks.email}
         linkedinHref={socialLinks.linkedin}
@@ -48,9 +50,13 @@ export default function Home() {
 
       <SkillsSection skills={skills} />
 
-      <OpenCollabSection />
-
       <ExperienceSection experience={experience} />
+      
+      <FooterCTA 
+        emailHref={socialLinks.email}
+        linkedinHref={socialLinks.linkedin}
+        githubHref={socialLinks.github}
+      />
     </div>
   );
 }

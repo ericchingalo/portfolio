@@ -1,0 +1,234 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.shell {
+  width: min(1200px, 100%);
+  z-index: 1;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-primary);
+}
+
+.title {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.titleHighlight {
+  color: var(--accent-primary);
+  display: block;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 32px;
+  justify-content: flex-start;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--text-tertiary);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.primaryBtn {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 14px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  background: var(--bg-tertiary);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primaryBtn:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.primaryBtn::after {
+  content: '→';
+  font-size: 14px;
+}
+
+.secondaryBtn {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 14px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.imageArea {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-secondary);
+}
+
+.portrait {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(20%) contrast(1.1);
+  transition: filter 0.4s ease;
+}
+
+.imageArea:hover .portrait {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* Version text for mobile */
+.versionText {
+  display: none;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  color: var(--accent-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 24px 60px;
+  }
+
+  .versionText {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+  
+  .titleHighlight {
+    display: inline;
+  }
+
+  .stats {
+    gap: 24px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .imageArea {
+    aspect-ratio: 16 / 9;
+    order: -1;
+  }
+  
+  .content {
+    order: 2;
+  }
+}

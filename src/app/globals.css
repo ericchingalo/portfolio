@@ -1,16 +1,16 @@
 :root {
   /* Semantic Color System */
-  --bg-primary: #0b0f18;
-  --bg-secondary: rgba(255, 255, 255, 0.03);
-  --bg-tertiary: rgba(255, 255, 255, 0.06);
+  --bg-primary: #0A0F16;
+  --bg-secondary: rgba(255, 255, 255, 0.02);
+  --bg-tertiary: rgba(255, 255, 255, 0.05);
   
-  --text-primary: #e6edf5;
-  --text-secondary: #9fb3c8;
-  --text-tertiary: #c4d1e1;
-  --text-overline: #7cc6ff;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #CBD5E1;
+  --text-overline: #00E5FF;
 
-  --accent-primary: #7cc6ff;
-  --accent-secondary: #a1dbff;
+  --accent-primary: #00E5FF;
+  --accent-secondary: #33EBFF;
 
   --border-primary: rgba(255, 255, 255, 0.08);
   --border-secondary: rgba(255, 255, 255, 0.2);
@@ -28,8 +28,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* Ensure dark mode persists these choices or adjust if needed */
-    --bg-primary: #0b0f18;
-    --text-primary: #e6edf5;
+    --bg-primary: #0A0F16;
+    --text-primary: #FFFFFF;
   }
 }
 

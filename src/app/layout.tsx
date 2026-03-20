@@ -19,9 +19,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Eric Chingalo | Senior Systems Developer",
+  title: "Eric Chingalo | Senior Information Systems Developer",
   description:
-    "Minimal portfolio for Eric Chingalo, a senior systems developer specializing in mobile, web, integrations, DHIS2, and Figma handoff.",
+    "Minimal portfolio for Eric Chingalo, a Senior Information Systems Developer specializing in mobile, web, integrations, DHIS2, and Figma handoff.",
 };
 
 export default function RootLayout({

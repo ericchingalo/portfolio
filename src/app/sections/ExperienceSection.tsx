@@ -1,69 +1,55 @@
-import styles from "../page.module.css";
+"use client";
 
-type Experience = {
-  title: string;
-  org: string;
-  period: string;
-};
+import { motion } from "framer-motion";
+import styles from "./ExperienceSection.module.css";
+import { Experience } from "../../services/contentService";
 
 type ExperienceProps = {
   experience: Experience[];
 };
 
 export function ExperienceSection({ experience }: ExperienceProps) {
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const targetId = e.currentTarget.getAttribute("href")?.slice(1);
-    if (targetId) {
-      const element = document.getElementById(targetId);
-      if (element) {
-        // Use window.scrollTo for better mobile compatibility
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - 0;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
   return (
-    <section
-      className={`${styles.section} ${styles.sectionDefault} ${styles.animate}`}
-      data-animate
-      id="experience"
-    >
+    <section className={styles.section} id="experience">
       <div className={styles.shell}>
-        <section className={styles.experience}>
-          <div className={styles.experienceHeader}>
-            <p className={styles.overline}>Experience</p>
-            <h2>Where I’ve been</h2>
-          </div>
-          <div className={styles.experienceList}>
-            {experience.map((role) => (
-              <div className={styles.experienceItem} key={`${role.title}-${role.org}`}>
-                <div>
-                  <p className={styles.experienceTitle}>{role.title}</p>
-                  <p className={styles.experienceOrg}>{role.org}</p>
-                </div>
-                <p className={styles.experiencePeriod}>{role.period}</p>
+        <div className={styles.experienceHeader}>
+          <h2 className={styles.title}>
+            WHERE I'VE <span className={styles.titleHighlight}>BEEN</span>
+          </h2>
+          <span className={styles.logTag}>WORK EXPERIENCE</span>
+        </div>
+
+        <div className={styles.timeline}>
+          {experience.map((role, index) => (
+            <motion.div
+              className={styles.timelineItem}
+              key={`${role.title}-${role.org}`}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+            >
+              <div className={styles.timelineDot}></div>
+              
+              <div className={styles.period}>{role.period.replace(' — ', ' – ')}</div>
+              
+              <div>
+                <h3 className={styles.roleTitle}>{role.title}</h3>
+                <p className={styles.roleOrg}>{role.org}</p>
               </div>
-            ))}
-          </div>
-        </section>
+
+              {/* Added a placeholder description since design has it but data doesn't */}
+              <div className={styles.description}>
+                <div className={styles.descriptionList}>
+                   <div className={styles.descriptionItem}>
+                     {role.description}
+                   </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <a
-        className={`${styles.fab} ${styles.fabUp}`}
-        href="#hero"
-        aria-label="Back to top"
-        onClick={handleSmoothScroll}
-      >
-        ↑
-      </a>
     </section>
   );
 }
-
